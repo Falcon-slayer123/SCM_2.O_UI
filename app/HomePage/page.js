@@ -1,18 +1,40 @@
-// pages/sample.js
+"use client";
+import React from "react";
+import { useState, useEffect } from "react";
 export default function SamplePage() {
+    const apiurl = process.env.API_BASE_URL;
+
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const res = await fetch(apiurl + '/scm');
+    //             const result = await res.text();
+    //             console.log("resukt-->" + result);
+    //             setData(result);
+
+    //         } catch (error) {
+    //             console.error('Error fetching data:', error);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, []);
+
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
+
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="bg-white p-8 rounded shadow-md max-w-md w-full">
-          <h1 className="text-3xl font-bold mb-4">Welcome to My Sample Page</h1>
-          <p className="mb-4">
-            This is a simple example of a page in a Next.js application styled with Tailwind CSS.
-          </p>
-          <p className="mb-4">
-            Tailwind CSS makes it easy to style your application with utility classes.
-          </p>
-          <p className="text-blue-500 font-semibold">Have fun building your app!</p>
+        <div>
+            <h1>Data from API</h1>
+            {data}
         </div>
-      </div>
+
     );
-  }
-  
+}
+
